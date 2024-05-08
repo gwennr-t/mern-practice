@@ -23,7 +23,7 @@ const SkillsList = ({ skills, isLoggedInUser = false }) => {
   };
 
   if (!skills.length) {
-    return <h3>No Skills Yet</h3>;
+    return <h3>No liked Genres Yet</h3>;
   }
 
   return (

@@ -27,7 +27,7 @@ const SkillForm = ({ profileId }) => {
 
   return (
     <div>
-      <h4>Endorse some more skills below.</h4>
+      <h4>Like some more genres below.</h4>
 
       {Auth.loggedIn() ? (
         <form
@@ -36,7 +36,7 @@ const SkillForm = ({ profileId }) => {
         >
           <div className="col-12 col-lg-9">
             <input
-              placeholder="Endorse some skills..."
+              placeholder="Like some genres..."
               value={skill}
               className="form-input w-100"
               onChange={(event) => setSkill(event.target.value)}
@@ -45,7 +45,7 @@ const SkillForm = ({ profileId }) => {
 
           <div className="col-12 col-lg-3">
             <button className="btn btn-info btn-block py-3" type="submit">
-              Endorse Skill
+              Like Genre
             </button>
           </div>
           {error && (
@@ -56,7 +56,7 @@ const SkillForm = ({ profileId }) => {
         </form>
       ) : (
         <p>
-          You need to be logged in to endorse skills. Please{' '}
+          You need to be logged in to like genres! Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
