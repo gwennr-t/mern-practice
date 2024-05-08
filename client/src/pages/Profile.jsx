@@ -1,8 +1,11 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import SkillsList from '../components/SkillsList';
-import SkillForm from '../components/SkillForm';
+import GenresList from '../components/SkillsList';
+// import GenresList from '../components/GenresList';
+
+// import GenreForm from '../components/SkillForm';
+import GenresForm from '../components/GenresForm';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
@@ -43,13 +46,13 @@ const Profile = () => {
   return (
     <div>
       <h2 className="card-header">
-        {profileId ? `${profile.name}'s` : 'Your'} friends have endorsed these
-        skills...
+        {profileId ? `${profile.name}'s` : 'Your'} friends have liked these
+        genres...
       </h2>
 
-      {profile.skills?.length > 0 && (
-        <SkillsList
-          skills={profile.skills}
+      {profile.genres?.length > 0 && (
+        <GenresList
+          genres={profile.genres}
           isLoggedInUser={!profileId && true}
         />
       )}
