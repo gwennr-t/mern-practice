@@ -2,24 +2,24 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_SKILL } from '../../utils/mutations';
+import { ADD_GENRE } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
-const SkillForm = ({ profileId }) => {
-  const [skill, setSkill] = useState('');
+const GenreForm = ({ profileId }) => {
+  const [genre, setGenre] = useState('');
 
-  const [addSkill, { error }] = useMutation(ADD_SKILL);
+  const [addGenre, { error }] = useMutation(ADD_GENRE);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const data = await addSkill({
-        variables: { profileId, skill },
+      const data = await addGenre({
+        variables: { profileId, genre },
       });
 
-      setSkill('');
+      setGenre('');
     } catch (err) {
       console.error(err);
     }
@@ -37,9 +37,9 @@ const SkillForm = ({ profileId }) => {
           <div className="col-12 col-lg-9">
             <input
               placeholder="Like some genres..."
-              value={skill}
+              value={genre}
               className="form-input w-100"
-              onChange={(event) => setSkill(event.target.value)}
+              onChange={(event) => setGenre(event.target.value)}
             />
           </div>
 
@@ -64,4 +64,4 @@ const SkillForm = ({ profileId }) => {
   );
 };
 
-export default SkillForm;
+export default GenreForm;
