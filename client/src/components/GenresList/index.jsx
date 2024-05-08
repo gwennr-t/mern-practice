@@ -1,44 +1,44 @@
 import { useMutation } from '@apollo/client';
 
-import { REMOVE_SKILL } from '../../utils/mutations';
+import { REMOVE_GENRE } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 
-const SkillsList = ({ skills, isLoggedInUser = false }) => {
-  const [removeSkill, { error }] = useMutation
-  (REMOVE_SKILL, {
+const GenresList = ({ genres, isLoggedInUser = false }) => {
+  const [removeGenre, { error }] = useMutation
+  (REMOVE_GENRE, {
     refetchQueries: [
       QUERY_ME,
       'me'
     ]
   });
 
-  const handleRemoveSkill = async (skill) => {
+  const handleRemoveGenre = async (genre) => {
     try {
-      const { data } = await removeSkill({
-        variables: { skill },
+      const { data } = await removeGenre({
+        variables: { genre },
       });
     } catch (err) {
       console.error(err);
     }
   };
 
-  if (!skills.length) {
+  if (!genres.length) {
     return <h3>No liked Genres Yet</h3>;
   }
 
   return (
     <div>
       <div className="flex-row justify-space-between my-4">
-        {skills &&
-          skills.map((skill) => (
-            <div key={skill} className="col-12 col-xl-6">
+        {genres &&
+          genres.map((genre) => (
+            <div key={genre} className="col-12 col-xl-6">
               <div className="card mb-3">
                 <h4 className="card-header bg-dark text-light p-2 m-0 display-flex align-center">
-                  <span>{skill}</span>
+                  <span>{genre}</span>
                   {isLoggedInUser && (
                     <button
                       className="btn btn-sm btn-danger ml-auto"
-                      onClick={() => handleRemoveSkill(skill)}
+                      onClick={() => handleRemoveGenre(genre)}
                     >
                       X
                     </button>
@@ -55,4 +55,4 @@ const SkillsList = ({ skills, isLoggedInUser = false }) => {
   );
 };
 
-export default SkillsList;
+export default GenresList;
