@@ -926,7 +926,8 @@ a:hover {
 }
 
 .bg-info {
-  background-color: #1bbc9b !important;
+  /* background-color: #1bbc9b !important; */
+  background-color: #86A5D9 !important;
 }
 
 .bg-danger {
@@ -1032,12 +1033,14 @@ a:hover {
 }
 
 .btn.btn-info {
-  background-color: #1bbc9b;
+  /* background-color: #1bbc9b; */
+  background-color: #86A5D9;
   color: #ffffff;
 }
 
 .btn.btn-info:hover {
-  background-color: #31e1bd;
+  /* background-color: #31e1bd; */
+  background-color: #93abd4dd;
 }
 
 .btn.btn-light {
