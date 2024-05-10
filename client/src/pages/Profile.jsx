@@ -44,7 +44,7 @@ const Profile = () => {
   return (
     <div>
       <h2 className="card-header">
-        {profileId ? `${profile.name}'s` : 'Your'} friends have added these
+        {profileId ? `${profile.name}'s` : 'You'} have added these
         genres...
       </h2>
 
