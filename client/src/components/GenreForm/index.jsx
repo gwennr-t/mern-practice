@@ -27,7 +27,7 @@ const GenreForm = ({ profileId }) => {
 
   return (
     <div>
-      <h4>Like some more genres below.</h4>
+      <h4>Add some more genres below.</h4>
 
       {Auth.loggedIn() ? (
         <form
@@ -45,7 +45,7 @@ const GenreForm = ({ profileId }) => {
 
           <div className="col-12 col-lg-3">
             <button className="btn btn-info btn-block py-3" type="submit">
-              Like Genre
+              Add Genre
             </button>
           </div>
           {error && (
@@ -56,7 +56,7 @@ const GenreForm = ({ profileId }) => {
         </form>
       ) : (
         <p>
-          You need to be logged in to like genres! Please{' '}
+          You need to be logged in to add genres! Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}

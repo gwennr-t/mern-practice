@@ -17,7 +17,7 @@ const ProfileList = ({ profiles, title }) => {
                   {profile.name} <br />
                   <span className="text-white" style={{ fontSize: '1rem' }}>
                     currently has {profile.genres ? profile.genres.length : 0}{' '}
-                    liked genre
+                    favorite genre
                     {profile.genres && profile.genres.length === 1 ? '' : 's'}
                   </span>
                 </h4>
@@ -26,7 +26,7 @@ const ProfileList = ({ profiles, title }) => {
                   className="btn btn-block btn-squared btn-light text-dark"
                   to={`/profiles/${profile._id}`}
                 >
-                  View and like their genres.
+                  View their genres.
                 </Link>
               </div>
             </div>

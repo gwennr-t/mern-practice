@@ -23,7 +23,7 @@ const GenresList = ({ genres, isLoggedInUser = false }) => {
   };
 
   if (!genres.length) {
-    return <h3>No liked Genres Yet</h3>;
+    return <h3>No Favorite Genres Yet</h3>;
   }
 
   return (
