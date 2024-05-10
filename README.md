@@ -1,28 +1,37 @@
-# Pass JWT to Resolver with Context (Server-side)
+# Riff Relm
 
-In this demo, you will verify if a token is valid and carry
+Welcome to [Riff Relm](https://mern-practice-pzke.onrender.com/)!
 
-## Instructions
+Riff Relm is a music community where connoiseurs and music lovers alike can connect via their favorite genres of music. 
 
-* Run `npm install` and `npm run seed` to set up the database.
+## Table of Contents
 
-* Open [server.js](server/server.js) and explain the following:
+- [Usage](#usage)
+- [Preview](#preview)
+- [Vredits](#credits)
+- [Developers](#developers)
+- [License](#license)
 
-  * We can add another option to our Apollo Server configuration called `context`, which is a lot like middleware in Express.
+## Usage
 
-  * This will allow us to intercept any request to the server and check if there's a valid JWT before the request gets to the resolver.
+Feel free to visit the application using this [link](https://mern-practice-pzke.onrender.com/) and make an account by pressing the sign up button. Already have an account? Login! Once logged in build your music profile by adding in your favorite genres. All done customizing your profile? Take a look at other users favorite genres of music and get inspired. Like what you're seeing on another users profile or have some questions about their favorite genres? Send them a message and let them know!
 
-* Open [auth.js](server/utils/auth.js) and explain the `authMiddleware` function:
+## Preview
 
-  * Whenever we make a request to our server, we will check if there's a token with the request and attempt to verify and decode it if there is.
 
-  * We use the `return` statement to return the `req` object, either modified with user data or not modified at all, and the request will continue to go to its intended resolver function.
+## Credits
+This project uses [React](https://react.dev/) for the front end, [GraphQL](https://graphql.org/) with a [Node.js](https://nodejs.org/en) and [Express.js](https://expressjs.com/) server. The database uses [MongoDB](https://www.mongodb.com/) and the [MongooseODM](https://mongoosejs.com/) for the database and is deployed using [Render](https://render.com/).
 
-* Open [resolvers.js](server/schemas/resolvers.js) and explain the following:
+## Developers
 
-  * Any time we need to implement authentication on a query or mutation, we can add a third parameter called `context` to the resolver function.
+This project was a collaborative effort. Listed below are the usernames for each developer's github account.
 
-  * The `context` object is whatever has been returned from our `authMiddleware` function, so it may or may not include a `user` property depending on the status of the JSON Web Token.
+- [Cameron Fair: Camorama3](https://github.com/Camorama3)
+- [Gwenn Rivera-Torres: gwennr-t](https://github.com/gwennr-t)
+- [Julian Wiley: jtwiley1996](https://github.com/jtwiley1996)
+- [Keely York: MidnightsPride](https://github.com/MidnightsPride)
 
-  * If there is a `user` property, we can assume the user's token has been verified and the `user` property now holds data about the user that we stored in the token itself.
+## License
 
+[![License](https://img.shields.io/badge/License-LCS-brightgreen.svg)](https://opensource.org/licenses/LCS)
+This application is covered under the [LCS](https://opensource.org/licenses/LCS) license.
