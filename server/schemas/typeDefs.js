@@ -5,6 +5,7 @@ const typeDefs = `
     email: String
     password: String
     genres: [String]!
+    comments: [String]
   }
 
   type Auth {
@@ -26,6 +27,8 @@ const typeDefs = `
     addGenre(profileId: ID!, genre: String!): Profile
     removeProfile: Profile
     removeGenre(genre: String!): Profile
+
+    addComment(profileId: ID!, comment: String!): Profile
   }
 `;
 

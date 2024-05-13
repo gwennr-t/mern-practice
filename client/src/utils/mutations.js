@@ -22,6 +22,16 @@ export const ADD_GENRE = gql`
   }
 `;
 
+export const ADD_COMMENT = gql`
+  mutation addComment($profileId: ID!, $comment: String!) {
+    addComment(profileId: $profileId, comment: $comment) {
+      _id
+      name
+      comments
+    }
+  }
+`;
+
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {

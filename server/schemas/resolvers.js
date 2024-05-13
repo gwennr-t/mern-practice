@@ -1,4 +1,3 @@
-
 const { Profile } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
@@ -62,6 +61,23 @@ const resolvers = {
       // If user attempts to execute this mutation and isn't logged in, throw an error
       throw AuthenticationError;
     },
+
+    addComment: async (parent, { profileId, comment }, context) => {
+      if (context.user) {
+        return Profile.findOneAndUpdate(
+          { _id: profileId },
+          {
+            $addToSet: { comments: comment },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw AuthenticationError;
+    },
+
     // Set up mutation so a logged in user can only remove their profile and no one else's
     removeProfile: async (parent, args, context) => {
       if (context.user) {

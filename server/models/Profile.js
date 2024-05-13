@@ -25,6 +25,12 @@ const profileSchema = new Schema({
       trim: true,
     },
   ],
+  comments: [
+    {
+      type: String,
+      trim: true,
+    },
+  ],
 });
 
 // set up pre-save middleware to create password
