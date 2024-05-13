@@ -8,37 +8,46 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
-      <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
-        <Link className="text-dark" to="/">
-          <h1 className="m-0" style={{ fontSize: '3rem' }}>
+    <header className="bg-dark text-white py-3">
+      <div className="container">
+        <nav className="navbar navbar-expand-lg navbar-dark">
+          <Link className="navbar-brand" to="/" style={{ fontSize: '2rem', fontWeight: 'bold' }}>
             Riff Relm™
-          </h1>
-        </Link>
-        <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-          Your go-to Harmony Hub™ to meet people with similar genre tastes!
-        </p>
-        <div>
-          {Auth.loggedIn() ? (
-            <>
-              <Link className="btn btn-lg btn-primary m-2" to="/me">
-                View My Profile
-              </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link className="btn btn-lg btn-primary m-2" to="/login">
-                Login
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
-                Signup
-              </Link>
-            </>
-          )}
-        </div>
+          </Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto align-items-lg-center">
+              <li className="nav-item">
+                <p className="mb-lg-0 mx-3" style={{ fontSize: '1.2rem', marginTop: '0.5rem' }}>
+                  Your go-to Harmony Hub™ to meet people with similar genre tastes!
+                </p>
+              </li>
+              <li className="nav-item">
+                {Auth.loggedIn() ? (
+                  <>
+                    <Link className="btn btn-primary mx-1 my-2 my-lg-0" to="/me">
+                      View My Profile
+                    </Link>
+                    <button className="btn btn-outline-light mx-1 my-2 my-lg-0" onClick={logout}>
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link className="btn btn-primary mx-1 my-2 my-lg-0" to="/login">
+                      Login
+                    </Link>
+                    <Link className="btn btn-outline-light mx-1 my-2 my-lg-0" to="/signup">
+                      Signup
+                    </Link>
+                  </>
+                )}
+              </li>
+            </ul>
+          </div>
+        </nav>
       </div>
     </header>
   );
